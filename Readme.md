@@ -1,7 +1,7 @@
 ## Twirpy installation experiments
 
-### Server is hosted using python3. This is a sentiment predictor for text and gives response of
-'POS' or 'NEG' and a probability.The client sends the text along with the model that needs to be used.
+### A sentiment predictor for text and gives response of 'POS' or 'NEG' and a probability.The client sends the text along with the model that needs to be used.
+
 The client server communication using Twirpy,Twirp and Protoc is tested with the server running on python3 and using both Python3 client and a Go client.
 
 
