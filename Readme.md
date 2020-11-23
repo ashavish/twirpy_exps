@@ -5,6 +5,13 @@
 The client server communication is done using Twirpy,Twirp and Protoc. It is tested with the server running on python3 and using both Python3 client and a Go client.
 
 
+Create 'models' folder under twirpy_python
+
+[Download models from here] https://drive.google.com/file/d/18CP2gUiYXyRF3r2jhe70ESC5_1R2Q9p6/view?usp=sharing
+
+And place all the models in the 'models' folder 
+
+
 Create a virtual environment
 
 1. Install Golang from https://golang.org/doc/install?download=go1.15.5.linux-amd64.tar.gz
