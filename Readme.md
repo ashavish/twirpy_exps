@@ -1,8 +1,8 @@
 ## Twirpy installation experiments
 
-### A sentiment predictor for text and gives response of 'POS' or 'NEG' and a probability.The client sends the text along with the type of model that needs to be used.
+### A sentiment predictor for text. The response is 'POS' or 'NEG' and a probability.The client sends the text along with the type of model that needs to be used.
 
-The client server communication using Twirpy,Twirp and Protoc is tested with the server running on python3 and using both Python3 client and a Go client.
+The client server communication is done using Twirpy,Twirp and Protoc. It is tested with the server running on python3 and using both Python3 client and a Go client.
 
 
 Create a virtual environment
@@ -22,12 +22,15 @@ which go
 
 2. Create GO environment variables
 
+```
 mkdir ~/go
 mkdir ~/go/bin
+```
 
+```
 export GOPATH=$HOME
 export GOBIN=$GOPATH/bin
-
+```
 
 
 3.Install protoc compiler
@@ -38,14 +41,14 @@ sudo apt-get install protobuf-compiler
 
 4. Get the twirpy plugin
 
+```
 go get -u github.com/verloop/twirpy/protoc-gen-twirpy
-
+```
 or 
 
-git clone https://github.com/verloop/twirpy
-Navigate to twirpy/protoc-gen-twirpy and run 
-
 ```
+git clone https://github.com/verloop/twirpy
+cd twirpy/protoc-gen-twirpy
 go install 
 ```
 
@@ -53,12 +56,15 @@ If it gives a permission error, check the GOPATH and GOBIN environment variables
 
 5.Install Twirp
 
+```
 pip3 install twirp
+```
 
 6.Install Uvicorn - ASGI server 
 
+```
 pip3 install uvicorn
-
+```
 
 7. Navigate to twirpy/example
 
@@ -99,21 +105,27 @@ uvicorn server:app --port=3000
 python3 client.py
 ```
 
-We should see a proper response
+We should get a proper response
 
 
 ## For Go Client
 
 1. Get the plugins
 
+```
 go get -u github.com/twitchtv/twirp/protoc-gen-twirp
 go get -u github.com/golang/protobuf/protoc-gen-go
+```
 
+```
 export PATH=$PATH:$GOPATH/bin
+```
 
 2. Run protoc plugin for go
 
+```
 protoc --proto_path=$GOPATH/src:. --twirp_out=./generated --go_out=./generated textprediction.proto  --plugin=protoc-gen-twirp=$GOBIN/protoc-gen-twirp --plugin=protoc-gen-go=$GOBIN/protoc-gen-go
+```
 
 If the command doesnt run check the $GOBIN path. (ie ~/go/bin) . The protoc file should be present.
 
@@ -131,4 +143,4 @@ and run it using
 go run client.go
 ```
 
-We should see a proper response
+We should get a proper response
