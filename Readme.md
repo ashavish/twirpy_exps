@@ -7,7 +7,7 @@ The client server communication is done using Twirpy,Twirp and Protoc. It is tes
 
 Create 'models' folder under twirpy_python
 
-[Download models from here] https://drive.google.com/file/d/18CP2gUiYXyRF3r2jhe70ESC5_1R2Q9p6/view?usp=sharing
+[Download models from here](https://drive.google.com/file/d/18CP2gUiYXyRF3r2jhe70ESC5_1R2Q9p6/view?usp=sharing)
 
 And place all the models in the 'models' folder 
 
