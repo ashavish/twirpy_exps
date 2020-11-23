@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package twitch.twirp.example;
+option go_package = "example";
+
+// Sentiment for a given text
+message Sentiment {
+  // Sentiment for Imdb text. Can be POS / NEG
+  string sentiment = 1;
+  float  probability = 2;
+}
+
+//Text that is passed for Sentiment check
+message Content {
+  string text = 1;
+  string model = 2;
+}
+
+// PredictSentiment predicts sentiment for a given text and also returns the probability
+service SentimentPredictor {
+  // PredictSentiment returns the sentiment along with probability
+  rpc PredictSentiment(Content) returns (Sentiment);
+}
