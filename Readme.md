@@ -151,3 +151,30 @@ go run client.go
 ```
 
 We should get a proper response
+
+
+## Dockerfile
+
+Build the docker image 
+
+```
+docker build ./ -t twirpy_exps
+```
+
+List images
+```
+docker image ls
+```
+
+Run it and check
+```
+docker run -it twirpy_exps
+```
+
+Deploy it as a service
+
+```
+docker run -p 3000:3000 twirpy_exps
+```
+
+
