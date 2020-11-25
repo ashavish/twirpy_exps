@@ -178,3 +178,67 @@ docker run -p 3000:3000 twirpy_exps
 ```
 
 
+## Deploying on Kubernetes using Google Cloud 
+
+Clone the project on google cloud shell
+
+```
+git clone https://github.com/ashavish/twirpy_exps
+```
+
+Dont forget to download the models and place it under the model folder
+
+Build the docker image
+
+```
+docker build -t gcr.io/ashaexps/twirpy_exps:v1 ./
+```
+Check the images
+```
+docker images
+```
+
+Run the docker image
+```
+docker run -p 3000:3000 gcr.io/ashaexps/twirpy_exps:v1
+```
+
+We push to docker container registries for accessing it while creating the Kubernetes Cluster
+
+```
+gcloud auth configure-docker
+```
+
+```
+docker push gcr.io/ashaexps/twirpy_exps
+```
+
+```
+gcloud container clusters create twirpy-cluster --zone us-central1-c
+```
+
+See the created cluster under Kubernetes Engine->Clusters on Google cloud console
+
+```
+kubectl create deployment twirpy-cluster --image=gcr.io/ashaexps/twirpy_exps:v1
+```
+
+```
+kubectl get deploy
+```
+
+Expose the Kubernetes cluster to the external world
+```
+kubectl expose deployment twirpy-cluster --name=twirpy-service --type=LoadBalancer --port 3000 --target-port 3000
+```
+
+Check the details of the service
+```
+kubectl get services twirpy-service
+```
+
+Get the external ip and change it within the client.py file
+
+And try running python3 client.py
+
+You should get a proper response !
