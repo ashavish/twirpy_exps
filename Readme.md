@@ -191,7 +191,7 @@ Dont forget to download the models and place it under the model folder
 Build the docker image
 
 ```
-docker build -t gcr.io/ashaexps/twirpy_exps:v1 ./
+docker build -t gcr.io/<GCP_PROJECT_NAME>/twirpy_exps:v1 ./
 ```
 Check the images
 ```
@@ -200,7 +200,7 @@ docker images
 
 Run the docker image
 ```
-docker run -p 3000:3000 gcr.io/ashaexps/twirpy_exps:v1
+docker run -p 3000:3000 gcr.io/<GCP_PROJECT_NAME>/twirpy_exps:v1
 ```
 
 We push to docker container registries for accessing it while creating the Kubernetes Cluster
@@ -210,7 +210,7 @@ gcloud auth configure-docker
 ```
 
 ```
-docker push gcr.io/ashaexps/twirpy_exps
+docker push gcr.io/<GCP_PROJECT_NAME>/twirpy_exps
 ```
 
 ```
@@ -220,7 +220,7 @@ gcloud container clusters create twirpy-cluster --zone us-central1-c
 See the created cluster under Kubernetes Engine->Clusters on Google cloud console
 
 ```
-kubectl create deployment twirpy-cluster --image=gcr.io/ashaexps/twirpy_exps:v1
+kubectl create deployment twirpy-cluster --image=gcr.io/<GCP_PROJECT_NAME>/twirpy_exps:v1
 ```
 
 ```
